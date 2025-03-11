@@ -5,7 +5,7 @@
 #include<string>
 #include "Player.h"
 
-using namespace std;
+
 class Human: public Player{
     private:
         string name;

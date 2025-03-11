@@ -2,7 +2,6 @@
 #define REFEREE_H
 
 #include "Player.h"
-using namespace std;
 class Referee{
     public:
         Referee(){};
