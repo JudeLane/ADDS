@@ -5,7 +5,5 @@ int Truckloads::numTrucks(int numCrates, int loadSize){
         return 1;
     }
 
-    int half = numCrates/2;
-    int leftOver = numCrates - half;
-    return 1 + numTrucks(numCrates, half) + numTrucks(numCrates, leftOver);
+    return 1 + numTrucks(numCrates-loadSize, loadSize);
 }
