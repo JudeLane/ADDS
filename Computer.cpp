@@ -1,9 +1,10 @@
 #include "Computer.h"
+#include "Rock.h"
 
-char Computer::makeMove(){
-    return 'R';
+Move* Computer::makeMove(){
+    return new Rock();
 }
 
-string Computer::getName(){
+std::string Computer::getName(){
     return "Computer";
 }

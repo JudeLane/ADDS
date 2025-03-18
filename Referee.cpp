@@ -1,16 +1,20 @@
 #include "Referee.h"
-using namespace std;
 
-Player* Referee::refGame(Player* human, Player* computer){
-    char move1 = human->makeMove();
-    char move2 = computer->makeMove();
-    if (move1==move2){
-        return nullptr;
+Player* Referee::refGame(Player* player1, Player* player2){
+        Move* move1 = player1->makeMove();
+        Move* move2 = player2->makeMove();
+
+        if (move1->beatsMove(move2)) {
+            delete move1;
+            delete move2;
+            return player1;
+        } else if (move2->beatsMove(move1)) {
+            delete move1;
+            delete move2;
+            return player2;
+        } else {
+            delete move1;
+            delete move2;
+            return nullptr;
+        }
     }
-    if ((move1 == 'R' && move2 == 'S') ||
-        (move1 == 'S' && move2 == 'P') ||
-        (move1 == 'P' && move2 == 'R')) {
-        return human;
-    }
-    return computer;
-}
